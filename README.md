@@ -1,6 +1,6 @@
 # Fetch-Rewards-Coding-Exercise
 
-MyAppInitial2 is an Android application built using Jetpack Compose, Dagger Hilt for dependency injection, Retrofit for network communication, and Kotlin Coroutines with Flow for asynchronous operations.
+Fetch-Rewards-Coding-Exercise is an Android application built using Jetpack Compose, Dagger Hilt for dependency injection, Retrofit for network communication, and Kotlin Coroutines with Flow for asynchronous operations.
 
 ## Table of Contents
 

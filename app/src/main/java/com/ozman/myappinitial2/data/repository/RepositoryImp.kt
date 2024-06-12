@@ -4,10 +4,11 @@ import com.ozman.myappinitial2.data.remote.ApiService
 import com.ozman.myappinitial2.data.response.Item
 import com.ozman.myappinitial2.domain.repository.Repository
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class RepositoryImp @Inject constructor(val apiService: ApiService) : Repository {
+class RepositoryImp @Inject constructor(private val apiService: ApiService) : Repository {
 
     override fun getItems(): Flow<List<Item>> = flow {
         val response = apiService.getItems()
@@ -15,5 +16,7 @@ class RepositoryImp @Inject constructor(val apiService: ApiService) : Repository
         val groupedItems = filteredItems.groupBy { it.listId }
         val sortedItems = groupedItems.flatMap { it.value.sortedBy { item -> item.name } }
         emit(sortedItems)
+    }.catch { e ->
+        emit(emptyList()) // Emit empty list or handle error appropriately
     }
 }

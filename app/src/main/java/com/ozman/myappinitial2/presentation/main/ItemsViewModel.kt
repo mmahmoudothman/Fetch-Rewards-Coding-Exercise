@@ -18,8 +18,11 @@ class ItemsViewModel @Inject constructor(
     private val _items = MutableStateFlow<List<Item>>(emptyList())
     val items: StateFlow<List<Item>> = _items.asStateFlow()
 
-    private val _isLoading = MutableStateFlow(true)
+    private val _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> = _isLoading.asStateFlow()
+
+    private val _errorMessage = MutableStateFlow<String?>(null)
+    val errorMessage: StateFlow<String?> = _errorMessage.asStateFlow()
 
     init {
         fetchItems()
@@ -28,11 +31,10 @@ class ItemsViewModel @Inject constructor(
     private fun fetchItems() {
         viewModelScope.launch {
             _isLoading.value = true
-            repository.getItems().collect {
-                _items.value = it
+            repository.getItems().collect { result ->
+                _items.value = result
                 _isLoading.value = false
             }
         }
     }
 }
-

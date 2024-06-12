@@ -11,11 +11,18 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
+/**
+ * Module to provide network dependencies.
+ * Provides OkHttpClient, Retrofit, and ApiService.
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-
+    /**
+     * Provides a singleton instance of OkHttpClient with logging interceptor.
+     * @return Configured OkHttpClient instance.
+     */
     @Provides
     @Singleton
     fun providesOkHttpClient(): OkHttpClient {
@@ -26,6 +33,11 @@ object NetworkModule {
         }.build()
     }
 
+    /**
+     * Provides a singleton instance of Retrofit configured with the base URL and OkHttpClient.
+     * @param okHttpClient OkHttpClient instance used by Retrofit.
+     * @return Configured Retrofit instance.
+     */
     @Provides
     @Singleton
     fun providesServices(okHttpClient: OkHttpClient): Retrofit {
@@ -36,6 +48,11 @@ object NetworkModule {
         }.build()
     }
 
+    /**
+     * Provides a singleton instance of ApiService.
+     * @param retrofit Retrofit instance used to create ApiService.
+     * @return Configured ApiService instance.
+     */
     @Provides
     @Singleton
     fun provideApiService(retrofit: Retrofit): ApiService {

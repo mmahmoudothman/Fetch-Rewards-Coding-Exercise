@@ -6,6 +6,8 @@ Fetch-Rewards-Coding-Exercise is an Android application built using Jetpack Comp
 
 - [Features](#features)
 - [Architecture](#architecture)
+- [Project Structure](#project-structure)
+- [Screenshots](#screenshots)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
@@ -38,6 +40,48 @@ The project follows a modular and clean architecture:
   - **splash**: Splash screen
 - **ui**: Theme definitions
 
+## Project Structure
+
+```
+com.ozman.myappinitial2
+├── app
+│   └── MyApp.kt
+├── data
+│   ├── remote
+│   │   └── ApiService.kt
+│   ├── repository
+│   │   └── RepositoryImp.kt
+│   └── response
+│       └── Item.kt
+├── di
+│   ├── LocalModule.kt
+│   └── NetworkModule.kt
+├── domain
+│   └── repository
+│       └── Repository.kt
+├── nav
+│   └── AppNavHost.kt
+├── presentation
+│   ├── main
+│   │   ├── ItemListScreen.kt
+│   │   ├── ItemsViewModel.kt
+│   │   └── MainActivity.kt
+│   └── splash
+│       └── SplashScreen.kt
+└── ui
+    └── theme
+        └── Theme.kt
+```
+
+## Screenshots
+
+<p float="left">
+  <img src="https://github.com/mmahmoudothman/Fetch-Rewards-Coding-Exercise/blob/master/screen1.png" alt="Splash Screen" width="30%" />
+  <img src="https://github.com/mmahmoudothman/Fetch-Rewards-Coding-Exercise/blob/master/screen2.png" alt="Loading State" width="30%" />
+  <img src="https://github.com/mmahmoudothman/Fetch-Rewards-Coding-Exercise/blob/master/screen3.png" alt="Item List Screen" width="30%" />
+</p>
+
+
 ## Installation
 
 To get a local copy of the project, follow these steps:
@@ -47,7 +91,6 @@ To get a local copy of the project, follow these steps:
     git clone https://github.com/mmahmoudothman/Fetch-Rewards-Coding-Exercise.git
     ```
 2. Open the project in Android Studio.
-
 3. Sync the project with Gradle files.
 
 ## Usage
@@ -105,3 +148,28 @@ class ItemsViewModel @Inject constructor(
         }
     }
 }
+```
+
+## Contributing
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/master`)
+3. Commit your Changes (`git commit -m 'Add some master'`)
+4. Push to the Branch (`git push origin feature/master`)
+5. Open a Pull Request
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+## Acknowledgements
+
+- [Jetpack Compose](https://developer.android.com/jetpack/compose)
+- [Dagger Hilt](https://dagger.dev/hilt/)
+- [Retrofit](https://square.github.io/retrofit/)
+- [Kotlin Coroutines](https://kotlinlang.org/docs/coroutines-overview.html)
+```
+
+This `README.md` file provides a comprehensive overview of your project, including features, architecture, project structure, screenshots, installation instructions, usage, contributing guidelines, and licensing information. Make sure to replace the placeholder image paths with the actual paths to your screenshots. This will ensure that the images are displayed correctly in your GitHub repository's `README.md` file.
